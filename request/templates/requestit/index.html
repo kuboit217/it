@@ -1,0 +1,82 @@
+{% extends 'requestit/main.html' %}
+
+
+{% block content%}
+<div class="card card-body">
+    <table class="table">
+        <tr>
+            <th>STT</th>
+            <th>Tên Rq</th>
+            <th>Nhân viên</th>
+            <th>Bộ phận</th>
+            <th>Ngày tạo</th>
+            <th>Ngày chấp nhận</th>
+            <th>Ngày đóng</th>
+            <th>IT</th>
+        </tr>
+        <tr>
+            <td>{{ products.name }}</td>
+            <td>{{ products.category }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+        </tr>  
+        <tr>
+            <td>{{ products.name }}</td>
+            <td>{{ products.category }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+        </tr> 
+        <tr>
+            <td>{{ products.name }}</td>
+            <td>{{ products.category }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+        </tr> 
+        <tr>
+            <td>{{ products.name }}</td>
+            <td>{{ products.category }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+        </tr> 
+        <tr>
+            <td>{{ products.name }}</td>
+            <td>{{ products.category }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.price }}</td>
+        </tr>                  
+    </table>
+    </div>
+    <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+    </nav>
+{% endblock %}
