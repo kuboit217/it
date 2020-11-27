@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">Trang chủ <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'home' %}">Trang chủ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="taorequest.html">Tạo request</a>
+            <a class="nav-link" href="{% url 'create_request' %}">Tạo request</a>
         </li>            
         <li class="nav-item">
             <a class="nav-link" href="#">Tài liệu IT</a>
