@@ -1,7 +1,9 @@
-{% extends 'requestit/main.html' %}
 
+{% extends 'requestit/main.html' %}
+{% load widget_tweaks %}
 {% block content%}
-    <form>
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="inputEmail4">Họ & tên</label>
@@ -31,26 +33,18 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="inputState">Loại Request</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Vui lòng chọn</option>
-                    <option>Kế toán</option>
-                    <option>Thu mua</option>
-                </select>
+                {% render_field form.category class="form-control"%}
             </div>
             <div class="form-group col-md-3">
                 <label for="inputState">Thời gian muốn giải quyết</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Vui lòng chọn</option>
-                    <option>Kế toán</option>
-                    <option>Thu mua</option>
-                </select>
+                {% render_field form.time_rq class="form-control"%}
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="form-group">
                     <label for="inputAddress">Tiêu đề</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Nhập tiêu đề">
+                    {% render_field form.title class="form-control" placeholder="Tiêu đề" %}
                 </div>
             </div>
         </div>
@@ -58,7 +52,7 @@
             <div class="form-group col-md-6">
                 <div class="form-group">
                     <label for="inputAddress">File cần nhập</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    {% render_field form.file class="form-control-file" %}
                 </div>
             </div>
         </div>
@@ -66,7 +60,7 @@
             <div class="form-group col-md-6">
                 <div class="form-group">
                     <label for="content">Nội dung</label>
-                    <textarea class="form-control" id="content" rows="9"></textarea>
+                    {% render_field form.description class="form-control" placeholder="Nội dung" %}
                 </div>
             </div>
         </div>
