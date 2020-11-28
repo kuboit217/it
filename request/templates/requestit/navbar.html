@@ -24,8 +24,8 @@
         </li>
     </ul>
     <div>
-        <span class="hello-msg">Hello, admin</span>
-        <span><a class="hello-msg" href="">Thoát</a></span>
+        <span class="hello-msg">Hello, {{user}}</span>
+        <span><a class="hello-msg" href="{% url 'logout' %}">Thoát</a></span>
         </div>
     </div>
 </nav>
