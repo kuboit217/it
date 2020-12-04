@@ -9,6 +9,7 @@ class RequestForm(forms.ModelForm):
     class Meta:
         model = Requested
         fields = '__all__'
+        exclude = ['nhanvien','name','file','star','date_accept','date_closed']
 
 class CreateUserForm(UserCreationForm):
     class Meta:

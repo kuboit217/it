@@ -6,3 +6,6 @@ from .models import *
 
 admin.site.register(Requested)
 admin.site.register(Nhanvien)
+admin.site.register(Quanly)
+admin.site.register(Status)
+admin.site.register(Part)

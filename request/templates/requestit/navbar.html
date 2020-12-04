@@ -11,8 +11,8 @@
             <a class="nav-link" href="{% url 'home' %}">Trang chủ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'create_request' %}">Tạo request</a>
-        </li>            
+            <a class="nav-link" href="{% url 'create_request' user.id %}">Tạo request</a>
+        </li>       
         <li class="nav-item">
             <a class="nav-link" href="#">Tài liệu IT</a>
         </li>

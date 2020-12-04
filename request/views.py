@@ -4,6 +4,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login , logout 
 from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
+from django.forms import inlineformset_factory
 
 
 from .models import *
@@ -15,14 +16,24 @@ from .decorators import unauthenticated_user, allowed_users , andmin_only
 #views của homepage
 @login_required(login_url='login')
 def home(request):
-    context = {}
+    requested = Requested.objects.all().order_by('-date_created')
+    context = {'requested':requested}
     return render(request,'requestit/index.html', context)
 
 #create request
 @login_required(login_url='login')
-def create_request(request):
-    form = RequestForm()
-    context = {'form':form}
+def create_request(request, pk):
+    nhanvien = Nhanvien.objects.get(id=pk)
+    form = RequestForm(initial={'nhanvien': nhanvien})
+    if request.method == 'POST':
+        #form = OrderForm(request.POST)
+        form = RequestForm(request.POST,instance=nhanvien)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        else:
+            messages.error(request, "Error")
+    context = {'form':form,'nhanvien': nhanvien}
     return render(request,'requestit/create_request.html', context)
 
 
