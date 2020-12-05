@@ -17,8 +17,8 @@
         {% for requested in requested %}
         <tr>
             <td>{{ forloop.revcounter }}</td>
+            <td>{{ requested.title }}</td>
             <td>{{ requested.name }}</td>
-            <td>{{ requested.nhanvien }}</td>
             <td>{{ requested.department }}</td>
             <td>{{ requested.date_created|date:'d-m-Y' }}</td>
             <td>{{ requested.date_accept|date:'d-m-Y' }}</td>

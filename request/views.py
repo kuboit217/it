@@ -23,13 +23,17 @@ def home(request):
 #create request
 @login_required(login_url='login')
 def create_request(request):
+    nhanvien_name = Nhanvien.objects.filter(user = request.user).first()
     form = RequestForm()
     if request.method == 'POST':
         #form = OrderForm(request.POST)
-        form = RequestForm()
-        print("vào đây")
+        form = RequestForm(request.POST,request.FILES)
         if form.is_valid():
-            form.save()
+            obj  = form.save(commit=False)
+            obj.name = nhanvien_name.name
+            obj.department = nhanvien_name.department
+            print('111', nhanvien_name.id)
+            obj.save()
             return redirect('/')
         else:
             messages.error(request, "Error")
