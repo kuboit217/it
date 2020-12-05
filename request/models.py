@@ -63,6 +63,7 @@ class Requested(models.Model):
     date_accept = models.DateTimeField(null=True)
     date_closed = models.DateTimeField(null=True)
     time_rq = models.CharField(max_length=200, null=True, choices= TIME_RQ)
+    it_member = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
