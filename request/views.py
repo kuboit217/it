@@ -22,18 +22,18 @@ def home(request):
 
 #create request
 @login_required(login_url='login')
-def create_request(request, pk):
-    nhanvien = Nhanvien.objects.get(id=pk)
-    form = RequestForm(initial={'nhanvien': nhanvien})
+def create_request(request):
+    form = RequestForm()
     if request.method == 'POST':
         #form = OrderForm(request.POST)
-        form = RequestForm(request.POST,instance=nhanvien)
+        form = RequestForm()
+        print("vào đây")
         if form.is_valid():
             form.save()
             return redirect('/')
         else:
             messages.error(request, "Error")
-    context = {'form':form,'nhanvien': nhanvien}
+    context = {'form':form}
     return render(request,'requestit/create_request.html', context)
 
 
