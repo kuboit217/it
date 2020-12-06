@@ -32,7 +32,7 @@ def create_request(request):
             obj  = form.save(commit=False)
             obj.name = nhanvien_name.name
             obj.department = nhanvien_name.department
-            print('111', nhanvien_name.id)
+            obj.nhanvien = request.user
             obj.save()
             return redirect('/')
         else:

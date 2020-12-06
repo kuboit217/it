@@ -19,7 +19,7 @@ class Part(models.Model):
 #tạo bảng nhân viên
 class Nhanvien(models.Model):
     
-    user = models.OneToOneField(User, blank=True, null=True, on_delete=SET_NULL)
+    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
     department = models.ForeignKey(Part, null=True, on_delete=models.CASCADE)
@@ -28,6 +28,8 @@ class Nhanvien(models.Model):
 
     def __str__(self):
         return self.name
+    def __int__(self):
+        return self.id
 
 
 
@@ -51,7 +53,7 @@ class Requested(models.Model):
         ('2 sao', '2 sao'),
         ('1 sao', '1 sao'),
     )
-    nhanvien = models.ForeignKey(Nhanvien, null=True, on_delete=models.CASCADE)
+    nhanvien = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     department = models.ForeignKey(Part, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
     category = models.CharField(max_length=200, null=True,choices=CATEGORY)
