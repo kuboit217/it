@@ -1,0 +1,70 @@
+{% extends 'requestit/main.html' %}
+{% load widget_tweaks %}
+{% block content%}
+    <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %} 
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <div class="form-group">
+                    <label for="inputAddress">Họ tên</label>
+                   <input class="form-control" type="text" placeholder="{{requested.name}}" readonly>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="form-group">
+                    <label for="inputAddress">Bộ phận</label>
+                   <input class="form-control" type="text" placeholder="{{requested.department}}" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputState">Loại Request</label>
+                {% render_field form.category class="form-control"%}
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputState">Thời gian muốn giải quyết</label>
+                {% render_field form.time_rq class="form-control"%}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <label for="inputAddress">Tiêu đề</label>
+                    {% render_field form.title class="form-control" placeholder="Tiêu đề" %}
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <label for="inputAddress">File cần nhập</label>
+                    {% render_field form.file class="form-control-file" %}
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <label for="content">Nội dung</label>
+                    {% render_field form.description class="form-control" placeholder="Nội dung" %}
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Gửi</button>
+    </form>
+     {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible col-12 mx-1" role="alert">
+        <div id="form_errors">
+            {% for key, value in form.errors.items %}
+                <span class="fieldWrapper">
+                    {{ key }}:{{ value }}
+                </span>
+            {% endfor %}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+{% endblock %}

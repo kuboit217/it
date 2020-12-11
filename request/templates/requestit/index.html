@@ -18,8 +18,8 @@
         </tr>
         {% for requested in requested %}
         <tr>
-            <td>{{ forloop.revcounter }}</td>
-            <td>{{ requested.title }}</td>
+            <td><a href="{% url 'update_request'  requested.id %}">{{ forloop.revcounter }}</a></td>
+            <td><a href="{% url 'update_request'  requested.id %}">{{ requested.title }}</a></td>
             <td>{{ requested.category }}</td>
             <td>{{ requested.name }}</td>
             <td>{{ requested.department }}</td>

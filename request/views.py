@@ -40,6 +40,18 @@ def create_request(request):
     context = {'form':form}
     return render(request,'requestit/create_request.html', context)
 
+#update request
+@login_required(login_url='login')
+def update_request(request, pk):
+    requested = Requested.objects.get(id=pk)
+    form = RequestForm(instance=requested)
+    if request.method == 'POST':
+        form = RequestForm(request.POST, request.FILES, instance=requested)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form':form, 'requested':requested}
+    return render(request,'requestit/update_request.html', context)
 
 #tạo view đăng ký
 @unauthenticated_user
